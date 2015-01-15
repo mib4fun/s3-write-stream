@@ -119,7 +119,7 @@ function factory(config) {
           }
         }, function(err, result) {
           if (err) return (lastErr = err), bo.backoff()
-          stream.emit('end')
+          stream.emit('end', result)
         })
       }).on('fail', function() {
         stream.emit('error', lastErr)
